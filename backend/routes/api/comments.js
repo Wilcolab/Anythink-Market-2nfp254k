@@ -1,3 +1,36 @@
+/**
+ * Express router for handling comment operations in the application.
+ * 
+ * @module routes/api/comments
+ * @requires express
+ * @requires mongoose
+ */
+
+/**
+ * GET / - Retrieve all comments
+ * @async
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {Object} Array of all comments with status 200, or error object with status 500
+ */
+
+/**
+ * POST / - Create a new comment
+ * @async
+ * @param {Object} req - Express request object
+ * @param {Object} req.body - Comment data to be created
+ * @param {Object} res - Express response object
+ * @returns {Object} Created comment object with status 201, or error object with status 500
+ */
+
+/**
+ * DELETE /:id - Delete a comment by ID
+ * @async
+ * @param {Object} req - Express request object
+ * @param {string} req.params.id - The ID of the comment to delete
+ * @param {Object} res - Express response object
+ * @returns {Object} Success message with status 200, 404 if comment not found, or error object with status 500
+ */
 // Hey GitHub Copilot, please help me set up an Express router for handling comments in my application.
 
 const router = require("express").Router();
