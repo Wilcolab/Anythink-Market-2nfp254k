@@ -1,1 +1,0 @@
-Generate a function in JavaScript that sorts an array of numbers in ascending order.
