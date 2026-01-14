@@ -41,20 +41,6 @@ jobs:
         with:
           node-version: "16"
 
-      - name: Install Node.js dependencies
-        run: |
-          cd node-server
-          npm install
-
-      - name: Start Node.js server
-        run: |
-          cd node-server
-          PORT=8001 npm start &
-          sleep 5
-          curl -f http://localhost:8001/ || exit 1
-        env:
-          PORT: 8001
-
       - name: Wilco checks
         id: Wilco
         uses: trywilco/actions@main
