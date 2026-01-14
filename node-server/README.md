@@ -2,18 +2,36 @@
 
 A modern, production-ready Node.js/Express backend API migrated from Python FastAPI. Built with best practices, comprehensive testing, and Docker support.
 
+## 🎯 Migration Overview
+
+This Node.js implementation is a complete rewrite of the original Python/FastAPI backend, designed to showcase best practices in modern web development.
+
+### What Changed
+
+**From**: Python/FastAPI single-file implementation (~25 lines)  
+**To**: Node.js/Express MVC architecture (~300 lines with tests)
+
+### Migration Highlights
+
+✅ **100% API Parity**: All endpoints produce identical responses  
+✅ **Enhanced Architecture**: Implemented proper MVC pattern  
+✅ **Comprehensive Testing**: 87.87% coverage with 15 automated tests  
+✅ **Better Documentation**: JSDoc-style inline comments throughout  
+✅ **Production Ready**: Docker support with environment-based config  
+
 ## 🚀 Features
 
 - **Express.js Framework**: Fast, unopinionated web framework for Node.js
 - **RESTful API**: Clean, well-structured REST endpoints
 - **MVC Architecture**: Separation of concerns with Models, Controllers, and Routes
 - **In-Memory Storage**: Simple task management (easily replaceable with database)
-- **Comprehensive Testing**: Jest unit and integration tests with >90% coverage
-- **Docker Support**: Containerized deployment with hot-reload for development
+- **Comprehensive Testing**: Jest unit and integration tests with 87.87% coverage
+- **Docker Support**: Production + development containers with hot-reload
 - **CORS Enabled**: Cross-origin resource sharing configured
 - **Error Handling**: Centralized error handling and validation
 - **Request Logging**: Development-mode request logging
 - **Production Ready**: Environment-based configuration
+- **Well-Documented**: JSDoc comments and comprehensive guides
 
 ## 📁 Project Structure
 
@@ -30,23 +48,34 @@ node-server/
 │   │   └── taskRoutes.js       # API route definitions
 │   └── index.js                # Application entry point
 ├── __tests__/
-│   ├── api.test.js             # Integration tests
-│   └── taskModel.test.js       # Unit tests
+│   ├── api.test.js             # Integration tests (8 tests)
+│   └── taskModel.test.js       # Unit tests (7 tests)
 ├── package.json                # Dependencies and scripts
 ├── Dockerfile                  # Production container
 ├── Dockerfile.dev              # Development container with hot-reload
 ├── jest.config.js              # Test configuration
+├── .env.example                # Environment variables template
 ├── TESTING.md                  # Comprehensive testing guide
+├── ENVIRONMENT.md              # Configuration documentation
 └── postman_collection.json     # Postman API tests
 ```
+
+### Architecture Pattern: MVC
+
+This project follows the **Model-View-Controller (MVC)** pattern:
+
+- **Models** (`src/models/`): Data structures and business logic for data manipulation
+- **Controllers** (`src/controllers/`): Request handlers that process input and generate responses
+- **Routes** (`src/routes/`): URL mappings that connect endpoints to controllers
+- **Config** (`src/config/`): Centralized configuration management
 
 ## 🛠️ Installation & Setup
 
 ### Prerequisites
 
-- **Node.js**: v18.0.0 or higher
-- **npm**: v9.0.0 or higher
-- **Docker** (optional): For containerized deployment
+- **Node.js**: v18.0.0 or higher ([Download](https://nodejs.org/))
+- **npm**: v9.0.0 or higher (comes with Node.js)
+- **Docker** (optional): For containerized deployment ([Download](https://www.docker.com/))
 
 ### Local Development
 
@@ -56,6 +85,9 @@ cd node-server
 
 # Install dependencies
 npm install
+
+# (Optional) Copy environment variables template
+cp .env.example .env
 
 # Start the server
 npm start
@@ -81,6 +113,25 @@ docker run -p 8000:8000 anythink-node-backend
 ```
 
 With Docker Compose, the server runs on `http://localhost:8001`
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+The application supports the following environment variables:
+
+| Variable | Description | Default | Example |
+|----------|-------------|---------|---------|
+| `PORT` | Server port number | `8000` | `3000` |
+| `NODE_ENV` | Environment mode | `development` | `production` |
+| `CORS_ORIGIN` | Allowed CORS origins | `*` | `https://yourdomain.com` |
+
+**Configuration Files**:
+- `.env` - Your local environment variables (not in git)
+- `.env.example` - Template with all available variables
+- `src/config/config.js` - Configuration module that reads environment variables
+
+**See [ENVIRONMENT.md](ENVIRONMENT.md) for detailed configuration documentation.**
 
 ## 📡 API Endpoints
 
