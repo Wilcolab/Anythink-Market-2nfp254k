@@ -45,7 +45,7 @@ const addTask = (req, res) => {
  * @param {Object} res - Express response object
  */
 const healthCheck = (req, res) => {
-  res.status(200).send('Hello World');
+  res.status(200).json('Hello World');
 };
 
 module.exports = {
