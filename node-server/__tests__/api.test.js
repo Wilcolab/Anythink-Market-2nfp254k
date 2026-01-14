@@ -21,7 +21,8 @@ describe('Task API Endpoints', () => {
     it('should return Hello World', async () => {
       const response = await request(app).get('/');
       expect(response.status).toBe(200);
-      expect(response.text).toBe('Hello World');
+      // Response is JSON-encoded string matching Python server
+      expect(response.text).toBe('"Hello World"');
     });
   });
 
@@ -52,7 +53,6 @@ describe('Task API Endpoints', () => {
         .set('Content-Type', 'application/json');
       
       expect(response.status).toBe(201);
-      expect(response.body).toHaveProperty('success', true);
       expect(response.body).toHaveProperty('message', 'Task added successfully');
     });
 

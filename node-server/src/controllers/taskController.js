@@ -89,7 +89,6 @@ const getTasks = (req, res) => {
  * HTTP/1.1 201 Created
  * Content-Type: application/json
  * {
- *   "success": true,
  *   "message": "Task added successfully"
  * }
  * 

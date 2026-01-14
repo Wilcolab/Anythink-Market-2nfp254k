@@ -172,7 +172,6 @@ Content-Type: application/json
 **Success Response (201):**
 ```json
 {
-  "success": true,
   "message": "Task added successfully"
 }
 ```

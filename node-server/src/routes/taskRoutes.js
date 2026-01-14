@@ -55,7 +55,6 @@ router.get('/tasks', taskController.getTasks);
  * 
  * @example Response:
  * {
- *   "success": true,
  *   "message": "Task added successfully"
  * }
  */

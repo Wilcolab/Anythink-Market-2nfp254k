@@ -23,7 +23,6 @@ describe('TaskModel', () => {
   describe('addTask', () => {
     it('should add a task and return success', () => {
       const result = TaskModel.addTask('Unit test task');
-      expect(result).toHaveProperty('success', true);
       expect(result).toHaveProperty('message', 'Task added successfully');
     });
 

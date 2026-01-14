@@ -55,11 +55,11 @@ class TaskModel {
    * Throws an error if the input is invalid.
    * 
    * @param {string} taskText - The text content of the task to add
-   * @returns {{success: boolean, message: string}} Result object with success status and message
+   * @returns {{message: string}} Result object with success message
    * @throws {Error} If taskText is not provided or is not a string
    * @example
    * const result = taskModel.addTask('Complete documentation');
-   * // Returns: {success: true, message: 'Task added successfully'}
+   * // Returns: {message: 'Task added successfully'}
    */
   addTask(taskText) {
     // Validate input
@@ -69,7 +69,7 @@ class TaskModel {
     
     // Add to storage
     this.tasks.push(taskText);
-    return { success: true, message: 'Task added successfully' };
+    return { message: 'Task added successfully' };
   }
 
   /**
