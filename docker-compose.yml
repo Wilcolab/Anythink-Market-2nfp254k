@@ -7,3 +7,11 @@ services:
       - 8000:8000
     volumes:
       - ./python-server/src:/app/src
+  node-app:
+    build:
+      context: ./node-app
+      dockerfile: Dockerfile
+    ports:
+      - 8001:8001
+    volumes:
+      - ./node-app/src:/app/src
