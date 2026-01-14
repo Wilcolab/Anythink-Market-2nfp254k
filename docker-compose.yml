@@ -7,3 +7,16 @@ services:
       - 8000:8000
     volumes:
       - ./python-server/src:/app/src
+
+  node-server:
+    build:
+      context: ./node-server
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8001:8000
+    volumes:
+      - ./node-server/src:/app/src
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - PORT=8000
