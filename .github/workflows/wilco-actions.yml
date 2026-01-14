@@ -41,6 +41,18 @@ jobs:
         with:
           node-version: "16"
 
+      - name: Install Node.js dependencies
+        run: |
+          cd node-server
+          npm install
+
+      - name: Start Node.js server
+        run: |
+          cd node-server
+          npm start &
+          sleep 3
+          curl -f http://localhost:8000/ || exit 1
+
       - name: Wilco checks
         id: Wilco
         uses: trywilco/actions@main
